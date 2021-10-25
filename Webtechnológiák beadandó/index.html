@@ -61,8 +61,6 @@
         });
     </script>
 
-
-
     <style>
         /* Attribútum alapú formázás */
         
@@ -99,24 +97,8 @@
             cursor: pointer;
         }
         
-        input[type=submit] {
-            width: 100%;
-            background-color: #04AA6D;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        input[type=submit]:hover {
+        input[type=button]:hover {
             background-color: #45a049;
-        }
-        
-        .column {
-            flex: 20%;
-            padding: 5px;
         }
     </style>
 
@@ -130,8 +112,6 @@
         <li><a href="https://www.spotify.com/hu/ " target="_blank">Spotify</a></li>
         <li><a href="https://music.apple.com/us/browse " target="_blank">Apple Music</a></li>
         <li><a href="https://soundcloud.com/ " target="_blank">SoundCloud</a></li>
-
-
     </ul>
 
     <div id="myForm">
@@ -149,8 +129,6 @@
 
         <h5 id="star">*A csillaggal megjelölt elemek kitöltése kötelező</h5>
 
-        <a href="https://www.spotify.com/hu/ " target="_blank">Spotify</a>
-
         <p id="definition">A zene a hangok és a csend érzelmeket kiváltó elrendezése, létezésének lényege az idő. A pontos meghatározás nem könnyű, de abban általában egyetértés mutatkozik, hogy a zene a hangok tudatosan elrendezett folyamata. A zene egy művészi kifejezési
             forma, a hangok és „nem-hangok” (csendek) időbeni váltakozásának többnyire tudatosan előállított sorrendje, mely nem utasít konkrét cselekvésre, viszont érzelmeket, indulatokat kelt és gondolatokat ébreszt.</p>
 
@@ -162,7 +140,7 @@
             <input type="number" name="year_of_publication" />
 
             <label for="genre"><b>Műfaj*</b></label>
-            <select id="genre" name="genre" onchange="genreOnChange()">
+            <select id="genre" name="genre">
                 <option value="jazz">Jazz</option>
                 <option value="techno">Techno</option>
                 <option value="art">Art</option>
@@ -194,19 +172,11 @@
             <label for=comment>Megjegyzés</label>
             <input type="text" name="comment" />
 
-
-
-            <!--<input type=button onclick="validateForm();" value="Validálás"></input>-->
-            <input type=button id="long_animation" onclick="addRow();" value="Mentés a listába"></input>
-            <!--<input type="button" onclick="localStorage.clear();" value="Clear localStorage"></input>-->
-
+            <input type="button" id="long_animation" onclick="addRow();" value="Mentés a listába"></input>
 
         </form>
 
-
         <h3 id="move">A listába felvett zenék itt fognak megjelenni:</h3>
-
-
 
         <div>
             <table class="center">
@@ -234,11 +204,7 @@
 
         </div>
 
-
-
     </div>
-
-
 
 </body>
 

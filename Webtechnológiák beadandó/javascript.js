@@ -1,4 +1,3 @@
-//ez a két metódus/fv a "szöveg megváltozik a feléviszed az egeret" cucchoz kell
 function mOver(divObj) {
     divObj.innerHTML = "Here you have the opportunity to list your favorite music"
 }
@@ -6,8 +5,6 @@ function mOver(divObj) {
 function mOut(obj) {
     obj.innerHTML = "Itt lehetőséged van arra, hogy listába foglald kedvenc zenéidet"
 }
-
-
 
 function validateForm() {
 
@@ -30,8 +27,6 @@ function validateForm() {
     localStorage.setItem("publisher", publisher);
     localStorage.setItem("length", length);
     localStorage.setItem("comment", comment);
-
-
 
     if (title === "") {
         alert("Add meg a címet");
@@ -73,8 +68,8 @@ function validateForm() {
         myForm["link"].focus();
         return false;
     }
-    if (link.search(".com") == -1) {
-        alert("Érvénytelen link!");
+    if (link.search(".com") == -1 && link.search(".hu") == -1 && link.search(".org") == -1) {
+        alert("Érvénytelen link! A link csak a .hu/.com/.org tartománykódok valamelyikére végződhet!");
         return false;
     }
 
@@ -163,45 +158,3 @@ function deleteRow(obj) {
     table.deleteRow(index);
 
 }
-
-/*windows.onload = addRow();*/
-
-/*
-window.onload = function() {
-    var reloading = sessionStorage.getItem("reloading");
-    if (reloading) {
-        sessionStorage.removeItem("reloading");
-        addRow();
-    }
-}
-
-function reloadP() {
-    sessionStorage.setItem("reloading", "true");
-}*/
-
-/*
-function save() {
-    //get value from localstorage
-    var myForm = document.forms["myForm"];
-    var title = myForm["title"].value;
-
-    var new_data = title;
-
-    if (localStorage.getItem("data") == null) {
-        localStorage.setItem("data", "[]");
-    }
-    var old_data = JSON.parse(localStorage.getItem("data"));
-    old_data.push(new_data);
-
-
-    localStorage.setItem("data", JSON.stringify(old_data));
-
-}
-
-function view() {
-
-    if (localStorage.getItem("data") != null) {
-        document.getElementById("demo").innerHTML = JSON.parse(localStorage.getItem("data"));
-    }
-}
-*/
