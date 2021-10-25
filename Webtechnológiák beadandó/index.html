@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="javascript.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" />
+
+    <script>
+        $(function() {
+            $("#star").click(function() {
+                $(this).css("font-size", "25px");
+            });
+        });
+
+        //kép
+        $(document).ready(function() {
+            $("#logo").mouseenter(function() {
+                $("img").animate({
+                    width: '500px',
+                    height: '150px'
+                });
+            });
+        });
+
+        //h2 szöveg
+        $(document).ready(function() {
+            $("#long_animation").click(function() {
+                var h3 = $("h3");
+                h3.animate({
+                    fontSize: '2em'
+                }, "slow");
+                h3.animate({
+                    fontSize: '2em'
+                }, 2000);
+                h3.animate({
+                    opacity: '0'
+                }, "slow");
+                h3.queue(function() {
+                    h3.html('Zenéid:');
+                    h3.dequeue();
+                });
+                h3.animate({
+                    opacity: '1'
+                }, "slow");
+            });
+        });
+
+        //h1 szöveg
+        $(document).ready(function() {
+            $("h1").click(function() {
+                $("h2").animate({
+                    "font-size": "toggle",
+                    "width": "50%",
+                    "left": "+=100px"
+                }, 1000, function() {
+                    $("h5").fadeOut(1500);
+                });
+            });
+        });
+    </script>
+
+
+
+    <style>
+        /* Attribútum alapú formázás */
+        
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        input[type=number],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        input[type=button] {
+            width: 100%;
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type=submit] {
+            width: 100%;
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        
+        .column {
+            flex: 20%;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body onload="timeBasedGreeting()">
+
+    <ul class="menubar">
+        <li><a class="active" href="#home">Zene bevitele</a></li>
+        <li><a href="https://music.youtube.com/tasteprofile" target="_blank">Youtube Music</a></li>
+        <li><a href="https://www.spotify.com/hu/ " target="_blank">Spotify</a></li>
+        <li><a href="https://music.apple.com/us/browse " target="_blank">Apple Music</a></li>
+        <li><a href="https://soundcloud.com/ " target="_blank">SoundCloud</a></li>
+
+
+    </ul>
+
+    <div id="myForm">
+
+        <div class="header">
+            <img src="musical_note.png" id="logo" />
+            <h1 id="myGreeting"></h1>
+        </div>
+
+        <h1 id="myGreeting"></h1>
+        <h2 id="makeItRed" onclick="this.innerHTML='Üdvözöllek a honlapon!';document.getElementById('makeItRed').style.color = 'red'">Üdvözöllek a honlapon!</h2>
+
+        <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="font-weight:bold;">
+            Itt lehetőséged van arra, hogy listába foglald kedvenc zenéidet</div>
+
+        <h5 id="star">*A csillaggal megjelölt elemek kitöltése kötelező</h5>
+
+        <a href="https://www.spotify.com/hu/ " target="_blank">Spotify</a>
+
+        <p id="definition">A zene a hangok és a csend érzelmeket kiváltó elrendezése, létezésének lényege az idő. A pontos meghatározás nem könnyű, de abban általában egyetértés mutatkozik, hogy a zene a hangok tudatosan elrendezett folyamata. A zene egy művészi kifejezési
+            forma, a hangok és „nem-hangok” (csendek) időbeni váltakozásának többnyire tudatosan előállított sorrendje, mely nem utasít konkrét cselekvésre, viszont érzelmeket, indulatokat kelt és gondolatokat ébreszt.</p>
+
+        <form name="myForm">
+            <label for="title"><b>Cím*</b></label>
+            <input type="text" id="title" />
+
+            <label for=year_of_publication><b>Megjelenés éve*</b></label>
+            <input type="number" name="year_of_publication" />
+
+            <label for="genre"><b>Műfaj*</b></label>
+            <select id="genre" name="genre" onchange="genreOnChange()">
+                <option value="jazz">Jazz</option>
+                <option value="techno">Techno</option>
+                <option value="art">Art</option>
+                <option value="popular">Popular</option>
+                <option value="country">Country</option>
+                <option value="electronic">Electronic</option>
+                <option value="hip_hop">Hip hop</option>
+                <option value="latin">Latin</option>
+                <option value="pop">Pop</option>
+                <option value="punk">Punk</option>
+                <option value="reaggae">Reaggae</option>
+                <option value="rock">Rock</option>
+                <option value="r&b">R&B</option>
+                <option value="metal">Metal</option>
+            </select>
+
+            <label for=performer><b>Előadó*</b></label>
+            <input type="text" name="performer" />
+
+            <label for=publisher>Kiadó</label>
+            <input type="text" name="publisher" />
+
+            <label for=length>Hossz</label>
+            <input type="text" name="length" />
+
+            <label for=link><b>Link*</b></label>
+            <input type="text" name="link" />
+
+            <label for=comment>Megjegyzés</label>
+            <input type="text" name="comment" />
+
+
+
+            <!--<input type=button onclick="validateForm();" value="Validálás"></input>-->
+            <input type=button id="long_animation" onclick="addRow();" value="Mentés a listába"></input>
+            <!--<input type="button" onclick="localStorage.clear();" value="Clear localStorage"></input>-->
+
+
+        </form>
+
+
+        <h3 id="move">A listába felvett zenék itt fognak megjelenni:</h3>
+
+
+
+        <div>
+            <table class="center">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table class="center" id="myTableData" border="1" cellpadding="2">
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><b>Cím</b></td>
+                    <td><b>Megjelenés éve</b></td>
+                    <td><b>Műfaj</b></td>
+                    <td><b>Előadó</b></td>
+                    <td><b>Link</b></td>
+                    <td><b>Kiadó</b></td>
+                    <td><b>Hossz</b></td>
+                    <td><b>Megjegyzés</b></td>
+                </tr>
+            </table>
+            &nbsp;
+
+        </div>
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>

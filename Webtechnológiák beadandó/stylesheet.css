@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    background-color: #1abc9c;
+}
+
+
+/* Csoportosító szelektor */
+
+h1 {
+    text-shadow: 1px 1px;
+}
+
+#definition::first-line {
+    color: red;
+}
+
+.menubar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+ul.beta {
+    list-style-type: square;
+}
+
+#myForm {
+    padding: 20px;
+    margin-top: 30px;
+    height: 900px;
+    width: 97%;
+    display: inline-block;
+    vertical-align: center;
+}
+
+.div_img {
+    display: block;
+    float: right;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header img {
+    float: right;
+    width: 450px;
+    height: 100px;
+}
+
+.header h1 {
+    position: relative;
+    top: 10px;
+}
+
+
+/* Gyerek alapú formázás */
+
+.menubar>li a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menubar>li a:visited {
+    font-weight: bold;
+    color: lightgray
+}
+
+.menubar>li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #04AA6D;
+}
+
+
+/* Leszármazott alapú formázás */
+
+table tr:nth-child(even) td {
+    background-color: rgba(0, 139, 139, 0.521);
+}
